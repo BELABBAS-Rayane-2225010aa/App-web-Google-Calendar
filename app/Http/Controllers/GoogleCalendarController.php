@@ -90,14 +90,14 @@ class GoogleCalendarController extends Controller
 
         // Si aucun événement n'est trouvé, on affiche un message d'erreur
         if (empty($events)) {
-            $events = "No upcoming events found.\n";
+            $events = [];
         }
-        // Sinon, on affiche les événements
+        // Sinon, on affiche les événements avec les détails de l'événement
         else {
             $eventList = [];
             foreach ($events as $event) {
                 $start = $event->start->dateTime;
-                // Si l'événement n'a pas de date et heure de début, on affiche la date
+//                // Si l'événement n'a pas de date et heure de début, on affiche la date d'en ce momment
                 if (empty($start)) {
                     $start = $event->start->date;
                 }
